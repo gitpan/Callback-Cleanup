@@ -1,0 +1,14 @@
+---
+name: Callback-Cleanup
+version: 0.01
+author:
+  - 'Yuval Kogman <nothingmuch@woobling.org>'
+abstract: Declare callbacks that clean themselves up
+license: perl
+requires:
+  ok: 0
+provides:
+  Callback::Cleanup:
+    file: lib/Callback/Cleanup.pm
+    version: 0.01
+generated_by: Module::Build version 0.2611
