@@ -54,27 +54,8 @@ CLOSURES AND GARBAGE COLLECTION
     In perl code references that are not closures aren't garbage collected
     (they are shared).
 
-    In order to make those still work Callback::Cleanup wraps them in a
-    simple overloading object.
-
-    You can avoid this workaround by always ensuring the objects you pass in
-    always close over something.
-
-    Note that this will bless your closures, and you can't have more than
-    one cleanup sub associated with a closure.
-
-    If you want to force one behavior or another, use
-    Callback::Cleanup::Closure or Callback::Cleanup::Array directly:
-
-            Callback::Cleanup::Closure->new(
-                    \&foo,
-                    sub { warn "this is probably global destruction" },
-            );
-
-            Callback::Cleanup::Array->new(
-                    sub { $closure_var }, # avoids blessing this by wrapping instead
-                    sub { ... },
-            );
+    This module uses "clone_if_immortal" in Sub::Clone to make sure timely
+    destruction of these callbacks happens.
 
 AUTHOR
     Yuval Kogman <nothingmuch@woobling.org>

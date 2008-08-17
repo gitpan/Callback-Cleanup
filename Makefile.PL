@@ -5,6 +5,8 @@ WriteMakefile
           'NAME' => 'Callback::Cleanup',
           'VERSION_FROM' => 'lib/Callback/Cleanup.pm',
           'PREREQ_PM' => {
+                           'Hash::Util::FieldHash::Compat' => 0,
+                           'Sub::Clone' => 0,
                            'Sub::Exporter' => 0,
                            'ok' => 0
                          },
